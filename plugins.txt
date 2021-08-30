@@ -1,0 +1,6 @@
+timestamper:latest
+git:latest
+build-timeout:latest
+configuration-as-code:latest
+matrix-auth:latest
+authorize-project:latest

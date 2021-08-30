@@ -1,0 +1,25 @@
+unclassified:
+  location:
+    url: http://localhost:8080
+jenkins:
+  # make sure configuration-as-code plugin installed
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+       - id: ${JENKINS_ADMIN_ID}
+         password: ${JENKINS_ADMIN_PASSWORD}
+  # make sure matrix-auth plugin installed
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+        - "Overall/Administer:admin"
+        - "Overall/Read:authenticated"
+  remotingSecurity:
+    enabled: true
+# make sure authorize-project plugin installed
+security:
+  queueItemAuthenticator:
+    authenticators:
+    - global:
+        strategy: "triggeringUsersAuthorizationStrategy"
