@@ -12,7 +12,7 @@ pipeline {
         stage('Publish image') {
             steps{
                 echo 'Publishing image to docker hub'
-                withDockerRegistry(credentialsId: 'docker-hub') {
+                withDockerRegistry(credentialsId: 'docker-hub', url: "") {
                      sh 'docker push hardikshah1/jenkins:0.2'
                 }
             }
